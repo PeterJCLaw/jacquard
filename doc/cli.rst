@@ -45,14 +45,14 @@ set-default
    :prog: jacquard
    :path: set-default
 
-show
-~~~~
+user-show
+~~~~~~~~~
 
 .. argparse::
    :module: jacquard.cli
    :func: argument_parser
    :prog: jacquard
-   :path: show
+   :path: user-show
 
 override
 ~~~~~~~~
@@ -75,23 +75,23 @@ rollout
 Experiments
 -----------
 
-list
-~~~~
-
-.. argparse::
-   :module: jacquard.cli
-   :func: argument_parser
-   :prog: jacquard
-   :path: list
-
-load-experiment
+experiment-list
 ~~~~~~~~~~~~~~~
 
 .. argparse::
    :module: jacquard.cli
    :func: argument_parser
    :prog: jacquard
-   :path: load-experiment
+   :path: experiment-list
+
+experiment-load
+~~~~~~~~~~~~~~~
+
+.. argparse::
+   :module: jacquard.cli
+   :func: argument_parser
+   :prog: jacquard
+   :path: experiment-load
 
 launch
 ~~~~~~

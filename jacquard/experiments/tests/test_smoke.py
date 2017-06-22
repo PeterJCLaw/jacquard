@@ -82,7 +82,7 @@ def test_load_after_launch_errors():
             'jacquard.experiments.commands.argparse.FileType',
             return_value=str,
         ):
-            main(('load-experiment', 'foo.yaml'), config=config)
+            main(('experiment-load', 'foo.yaml'), config=config)
 
     stderr_content = stderr.getvalue()
     assert "Experiment 'foo' is live, refusing to edit" in stderr_content
@@ -106,7 +106,7 @@ def test_load_after_launch_with_skip_launched():
         'jacquard.experiments.commands.argparse.FileType',
         return_value=str,
     ):
-        main(('load-experiment', '--skip-launched', 'foo.yaml'), config=config)
+        main(('experiment-load', '--skip-launched', 'foo.yaml'), config=config)
 
     fresh_data = DummyStore('', data=DUMMY_DATA_POST_LAUNCH)
     assert fresh_data.data == config.storage.data, "Data should be unchanged"
@@ -134,7 +134,7 @@ def test_load_after_conclude_errors():
             'jacquard.experiments.commands.argparse.FileType',
             return_value=str,
         ):
-            main(('load-experiment', 'foo.yaml'), config=config)
+            main(('experiment-load', 'foo.yaml'), config=config)
 
     assert original_data == config.storage.data, "Data should be unchanged"
 
@@ -160,7 +160,7 @@ def test_load_after_conclude_with_skip_launched():
         'jacquard.experiments.commands.argparse.FileType',
         return_value=str,
     ):
-        main(('load-experiment', '--skip-launched', 'foo.yaml'), config=config)
+        main(('experiment-load', '--skip-launched', 'foo.yaml'), config=config)
 
     assert original_data == config.storage.data, "Data should be unchanged"
 
